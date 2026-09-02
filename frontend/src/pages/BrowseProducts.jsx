@@ -167,7 +167,7 @@ const BrowseProducts = () => {
                           <button
                             onClick={(e) => { e.preventDefault(); addToCart(product._id); }}
                             disabled={addingToCart === product._id}
-                            className="flex items-center justify-center bg-[#2D6A4F] bg-opacity-10 hover:bg-[#2D6A4F] text-[#2D6A4F] hover:text-white px-4 py-2 rounded-md text-sm font-semibold transition-all duration-300 disabled:opacity-50"
+                            className="flex items-center justify-center cursor-pointer bg-[#2D6A4F] text-gray-300 bg-opacity-10 hover:bg-[#2D6A4F] text-[#2D6A4F] hover:text-white px-4 py-2 rounded-md text-sm font-semibold transition-all duration-300 disabled:opacity-50"
                           >
                             {addingToCart === product._id ? 'Adding...' : 'Add to Cart'}
                           </button>
