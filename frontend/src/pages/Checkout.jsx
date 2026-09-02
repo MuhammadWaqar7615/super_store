@@ -7,7 +7,7 @@ import { useAuth } from '../context/AuthContext';
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || 'pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 import axios from 'axios';
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || '/api';
 
 const CheckoutForm = ({ clientSecret, paymentIntentId }) => {
   const stripe = useStripe();
