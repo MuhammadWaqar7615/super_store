@@ -14,11 +14,18 @@ const Header = () => {
   const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
-    if (customer) {
-      axios.get(`${API_URL}/cart`).then(res => {
-        setCartCount(res.data.cart?.items?.reduce((acc, item) => acc + item.quantity, 0) || 0);
-      }).catch(err => console.error(err));
-    }
+    const fetchCart = () => {
+      if (customer) {
+        axios.get(`${API_URL}/cart`).then(res => {
+          setCartCount(res.data.cart?.items?.reduce((acc, item) => acc + item.quantity, 0) || 0);
+        }).catch(err => console.error(err));
+      }
+    };
+
+    fetchCart();
+
+    window.addEventListener('cartUpdated', fetchCart);
+    return () => window.removeEventListener('cartUpdated', fetchCart);
   }, [customer]);
 
   useEffect(() => {

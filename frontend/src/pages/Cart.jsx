@@ -70,6 +70,7 @@ const Cart = () => {
     try {
       const res = await axios.put(`${API_URL}/cart/items/${productId}`, { quantity });
       setCart(res.data.cart);
+      window.dispatchEvent(new Event('cartUpdated'));
     } catch (error) {
       console.error('Failed to update quantity', error);
     }
@@ -79,6 +80,7 @@ const Cart = () => {
     try {
       const res = await axios.delete(`${API_URL}/cart/items/${productId}`);
       setCart(res.data.cart);
+      window.dispatchEvent(new Event('cartUpdated'));
     } catch (error) {
       console.error('Failed to remove item', error);
     }
@@ -89,6 +91,7 @@ const Cart = () => {
       await axios.post(`${API_URL}/cart/submit`);
       setCart({ ...cart, status: 'submitted' });
       setPolling(true);
+      window.dispatchEvent(new Event('cartUpdated'));
     } catch (error) {
       console.error('Failed to submit cart', error);
       setError('Failed to submit cart');

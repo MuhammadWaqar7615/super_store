@@ -48,6 +48,7 @@ const BrowseProducts = () => {
     try {
       await axios.post(`${API_URL}/cart/items`, { productId, quantity: 1 });
       setCartCount(prev => prev + 1);
+      window.dispatchEvent(new Event('cartUpdated'));
     } catch (err) {
       console.error('Failed to add to cart', err);
     } finally {
