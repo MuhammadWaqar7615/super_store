@@ -78,7 +78,7 @@ exports.register = async (req, res) => {
     res.status(200).json({ success: true, message: 'OTP sent to your email.' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, message: 'Server error' });
+    res.status(500).json({ success: false, message: 'Server error', error: error.message || error.toString() });
   }
 };
 
@@ -119,7 +119,7 @@ exports.verifyOtp = async (req, res) => {
     res.status(200).json({ success: true, message: 'Account verified successfully.' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, message: 'Server error' });
+    res.status(500).json({ success: false, message: 'Server error', error: error.message || error.toString() });
   }
 };
 
@@ -166,7 +166,7 @@ exports.resendOtp = async (req, res) => {
     res.status(200).json({ success: true, message: 'OTP resent to your email.' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, message: 'Server error' });
+    res.status(500).json({ success: false, message: 'Server error', error: error.message || error.toString() });
   }
 };
 
@@ -197,7 +197,7 @@ exports.login = async (req, res) => {
     res.status(200).json({ success: true, token, customer: { _id: customer._id, name: customer.name, email: customer.email } });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, message: 'Server error' });
+    res.status(500).json({ success: false, message: 'Server error', error: error.message || error.toString() });
   }
 };
 
@@ -207,6 +207,6 @@ exports.getMe = async (req, res) => {
     res.status(200).json({ success: true, customer });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, message: 'Server error' });
+    res.status(500).json({ success: false, message: 'Server error', error: error.message || error.toString() });
   }
 };
