@@ -89,7 +89,7 @@ const CustomerAuth = () => {
     try {
       const { data } = await axios.post(`${API_URL}/customer-auth/login`, { email: loginEmail, password: loginPassword });
       login(data.token, data.customer);
-      navigate('/products');
+      navigate('/');
     } catch (err) {
       if (err.response?.data?.message === 'Please verify your account first.') {
         // Redirect to OTP verification inside the wizard

@@ -25,7 +25,7 @@ const Login = () => {
     try {
       const res = await axios.post(`${API_URL}/customer-auth/login`, formData);
       login(res.data.token, res.data.customer);
-      navigate('/products');
+      navigate('/');
     } catch (err) {
       if (err.response?.data?.message === 'Please verify your account first.') {
         navigate('/verify-otp', { state: { email: formData.email } });

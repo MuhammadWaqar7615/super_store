@@ -21,7 +21,7 @@ const CustomerLayout = () => {
             </div>
             Super<span className="text-indigo-600">Store</span>
           </Link>
-          
+
           <div className="flex items-center space-x-6">
             <nav className="hidden md:flex space-x-8">
               <Link to="/" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Shop</Link>
@@ -36,16 +36,16 @@ const CustomerLayout = () => {
                   <span className="text-sm font-medium text-slate-600 hidden sm:block">
                     Hello, <span className="text-slate-900 font-semibold">{user.name || user.email?.split('@')[0]}</span>
                   </span>
-                  <button 
-                    onClick={handleLogout} 
+                  <button
+                    onClick={handleLogout}
                     className="text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-full transition-colors"
                   >
                     Logout
                   </button>
                 </>
               ) : (
-                <Link 
-                  to="/auth" 
+                <Link
+                  to="/auth"
                   className="text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded-full transition-colors shadow-sm"
                 >
                   Log in

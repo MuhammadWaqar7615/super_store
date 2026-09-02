@@ -7,6 +7,7 @@ import Checkout from '../pages/Checkout';
 import MyOrders from '../pages/MyOrders';
 import OrderDetails from '../pages/OrderDetails';
 import { useAuth } from '../context/AuthContext';
+import StoreLayout from '../layouts/StoreLayout';
 
 const ProtectedRoute = ({ children }) => {
   const { customer, loading } = useAuth();
@@ -19,32 +20,33 @@ const ProtectedRoute = ({ children }) => {
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/products" replace />} />
-      <Route path="/products" element={<BrowseProducts />} />
       <Route path="/register" element={<CustomerAuth />} />
       <Route path="/login" element={<CustomerAuth />} />
-      
-      {/* Protected Routes */}
-      <Route path="/cart" element={
-        <ProtectedRoute>
-          <Cart />
-        </ProtectedRoute>
-      } />
       <Route path="/checkout" element={
         <ProtectedRoute>
           <Checkout />
         </ProtectedRoute>
       } />
-      <Route path="/orders" element={
-        <ProtectedRoute>
-          <MyOrders />
-        </ProtectedRoute>
-      } />
-      <Route path="/orders/:id" element={
-        <ProtectedRoute>
-          <OrderDetails />
-        </ProtectedRoute>
-      } />
+      
+      {/* Store Routes with Header */}
+      <Route element={<StoreLayout />}>
+        <Route path="/" element={<BrowseProducts />} />
+        <Route path="/cart" element={
+          <ProtectedRoute>
+            <Cart />
+          </ProtectedRoute>
+        } />
+        <Route path="/orders" element={
+          <ProtectedRoute>
+            <MyOrders />
+          </ProtectedRoute>
+        } />
+        <Route path="/orders/:id" element={
+          <ProtectedRoute>
+            <OrderDetails />
+          </ProtectedRoute>
+        } />
+      </Route>
     </Routes>
   );
 };

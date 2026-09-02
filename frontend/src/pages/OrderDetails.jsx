@@ -37,7 +37,7 @@ const OrderDetails = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex justify-center items-center bg-gray-50">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#2D6A4F]"></div>
       </div>
     );
   }
@@ -46,26 +46,25 @@ const OrderDetails = () => {
     return (
       <div className="min-h-screen flex flex-col justify-center items-center bg-gray-50 px-4 text-center">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Order Not Found</h2>
-        <Link to="/orders" className="text-blue-600 hover:underline">Back to My Orders</Link>
+        <Link to="/orders" className="text-[#2D6A4F] hover:underline">Back to My Orders</Link>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
+    <>
+      <div className="max-w-3xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="mb-6">
-          <Link to="/orders" className="text-blue-600 hover:text-blue-700 font-medium flex items-center">
+          <Link to="/orders" className="text-[#2D6A4F] hover:text-[#1B4332] font-medium flex items-center">
             <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
             Back to Orders
           </Link>
         </div>
 
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden print:shadow-none print:bg-transparent">
-          {/* Header */}
-          <div className="bg-blue-600 px-8 py-10 text-white text-center">
+          <div className="bg-[#2D6A4F] px-8 py-10 text-white text-center">
             <h1 className="text-4xl font-black tracking-widest mb-2">SUPER STORE</h1>
-            <p className="text-blue-100 uppercase tracking-widest text-sm opacity-80">Official Receipt</p>
+            <p className="text-[#E8F5E9] uppercase tracking-widest text-sm opacity-80">Official Receipt</p>
           </div>
 
           <div className="p-8">
@@ -104,12 +103,11 @@ const OrderDetails = () => {
               </table>
             </div>
 
-            {/* Totals */}
             <div className="flex justify-end">
               <div className="w-full sm:w-1/2 bg-gray-50 p-6 rounded-xl">
                 <div className="flex justify-between items-center text-lg font-bold text-gray-900 border-t border-gray-200 pt-4 mt-2">
                   <span>TOTAL</span>
-                  <span className="text-2xl text-blue-600">Rs. {order.total}</span>
+                  <span className="text-2xl text-[#2D6A4F]">Rs. {order.total}</span>
                 </div>
               </div>
             </div>
@@ -129,7 +127,7 @@ const OrderDetails = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
