@@ -176,27 +176,27 @@ const CustomerAuth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8 font-sans">
+    <div className="min-h-screen bg-black flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-white tracking-tight">
           Super Store
         </h2>
-        <p className="mt-2 text-center text-sm text-slate-400">
+        <p className="mt-2 text-center text-sm text-neutral-400">
           Customer Portal
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white/5 backdrop-blur-xl py-8 px-4 shadow-2xl sm:rounded-2xl sm:px-10 border border-white/10 transition-all duration-300">
+        <div className="bg-neutral-900 backdrop-blur-xl py-8 px-4 shadow-2xl sm:rounded-2xl sm:px-10 border border-neutral-700 transition-all duration-300">
           
           {/* Tabs */}
-          <div className="flex mb-6 border-b border-white/10">
+          <div className="flex mb-6 border-b border-neutral-700">
             <button
               type="button"
               className={`flex-1 pb-3 text-center text-sm font-medium transition-colors ${
                 activeTab === 'login' 
-                  ? 'border-b-2 border-purple-500 text-white' 
-                  : 'text-slate-400 hover:text-slate-300'
+                  ? 'border-b-2 border-emerald-500 text-white' 
+                  : 'text-neutral-400 hover:text-neutral-300'
               }`}
               onClick={() => switchTab('login')}
             >
@@ -206,8 +206,8 @@ const CustomerAuth = () => {
               type="button"
               className={`flex-1 pb-3 text-center text-sm font-medium transition-colors ${
                 activeTab === 'register' 
-                  ? 'border-b-2 border-purple-500 text-white' 
-                  : 'text-slate-400 hover:text-slate-300'
+                  ? 'border-b-2 border-emerald-500 text-white' 
+                  : 'text-neutral-400 hover:text-neutral-300'
               }`}
               onClick={() => switchTab('register')}
             >
@@ -216,13 +216,13 @@ const CustomerAuth = () => {
           </div>
 
           {error && (
-            <div className="mb-4 bg-red-500/20 border border-red-500/50 rounded-lg p-3 text-sm text-red-200 text-center animate-pulse">
+            <div className="mb-4 bg-red-900/40 border border-red-500/50 rounded-lg p-3 text-sm text-red-300 text-center animate-pulse">
               {error}
             </div>
           )}
           
           {success && (
-            <div className="mb-4 bg-green-500/20 border border-green-500/50 rounded-lg p-3 text-sm text-green-200 text-center">
+            <div className="mb-4 bg-emerald-500/20 border border-emerald-500/50 rounded-lg p-3 text-sm text-emerald-200 text-center">
               {success}
             </div>
           )}
@@ -230,11 +230,11 @@ const CustomerAuth = () => {
           {activeTab === 'login' ? (
             <form className="space-y-5" onSubmit={handleLoginSubmit}>
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
+                <label className="block text-sm font-medium text-neutral-300 mb-1">Email Address</label>
                 <input
                   type="email"
                   required
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors"
+                  className="w-full bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
                   placeholder="you@example.com"
                   value={loginEmail}
                   onChange={(e) => setLoginEmail(e.target.value)}
@@ -242,12 +242,12 @@ const CustomerAuth = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-1">Password</label>
+                <label className="block text-sm font-medium text-neutral-300 mb-1">Password</label>
                 <div className="relative">
                   <input
                     type={showLoginPassword ? "text" : "password"}
                     required
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors pr-10"
+                    className="w-full bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors pr-10"
                     placeholder="••••••••"
                     value={loginPassword}
                     onChange={(e) => setLoginPassword(e.target.value)}
@@ -255,7 +255,7 @@ const CustomerAuth = () => {
                   <button
                     type="button"
                     onClick={() => setShowLoginPassword(!showLoginPassword)}
-                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-300 focus:outline-none"
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-neutral-400 hover:text-neutral-300 focus:outline-none"
                   >
                     {showLoginPassword ? (
                       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -274,7 +274,7 @@ const CustomerAuth = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 focus:ring-offset-slate-900 transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-2"
+                className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-full shadow-sm text-sm font-semibold text-white bg-emerald-500 hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 focus:ring-offset-black transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-2"
               >
                 {loading ? 'Authenticating...' : 'Sign in'}
               </button>
@@ -283,32 +283,32 @@ const CustomerAuth = () => {
             <form className="space-y-4" onSubmit={handleRegisterSubmit}>
               {/* Wizard Progress Indicator */}
               <div className="flex items-center justify-between mb-6 px-2">
-                <div className={`text-sm font-medium ${wizardStep === 1 ? 'text-purple-400' : 'text-slate-400'}`}>1. Personal Info</div>
-                <div className="flex-1 border-t border-white/20 mx-4"></div>
-                <div className={`text-sm font-medium ${wizardStep === 2 ? 'text-purple-400' : 'text-slate-400'}`}>2. Account</div>
-                <div className="flex-1 border-t border-white/20 mx-4"></div>
-                <div className={`text-sm font-medium ${wizardStep === 3 ? 'text-purple-400' : 'text-slate-400'}`}>3. Verify</div>
+                <div className={`text-sm font-medium ${wizardStep === 1 ? 'text-emerald-400' : 'text-neutral-400'}`}>1. Personal Info</div>
+                <div className="flex-1 border-t border-neutral-700 mx-4"></div>
+                <div className={`text-sm font-medium ${wizardStep === 2 ? 'text-emerald-400' : 'text-neutral-400'}`}>2. Account</div>
+                <div className="flex-1 border-t border-neutral-700 mx-4"></div>
+                <div className={`text-sm font-medium ${wizardStep === 3 ? 'text-emerald-400' : 'text-neutral-400'}`}>3. Verify</div>
               </div>
 
               {wizardStep === 1 && (
                 <div className="space-y-4 animate-in fade-in duration-300">
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-1">Full Name</label>
-                    <input type="text" name="name" required maxLength={50} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors" placeholder="John Doe" value={regData.name} onChange={handleRegChange} />
+                    <label className="block text-sm font-medium text-neutral-300 mb-1">Full Name</label>
+                    <input type="text" name="name" required maxLength={50} className="w-full bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors" placeholder="John Doe" value={regData.name} onChange={handleRegChange} />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-1">Phone Number</label>
-                    <input type="text" name="phone" required maxLength={20} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors" placeholder="+92 300 0000000" value={regData.phone} onChange={handleRegChange} />
+                    <label className="block text-sm font-medium text-neutral-300 mb-1">Phone Number</label>
+                    <input type="text" name="phone" required maxLength={20} className="w-full bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors" placeholder="+92 300 0000000" value={regData.phone} onChange={handleRegChange} />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-1">Address (Optional)</label>
-                    <input type="text" name="address" maxLength={200} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors" placeholder="123 Main St" value={regData.address} onChange={handleRegChange} />
+                    <label className="block text-sm font-medium text-neutral-300 mb-1">Address (Optional)</label>
+                    <input type="text" name="address" maxLength={200} className="w-full bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors" placeholder="123 Main St" value={regData.address} onChange={handleRegChange} />
                   </div>
                   
                   <button
                     type="button"
                     onClick={handleNextStep}
-                    className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 focus:ring-offset-slate-900 transition-all mt-6"
+                    className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-full shadow-sm text-sm font-semibold text-white bg-emerald-500 hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 focus:ring-offset-black transition-all mt-6"
                   >
                     Next Step &rarr;
                   </button>
@@ -318,14 +318,14 @@ const CustomerAuth = () => {
               {wizardStep === 2 && (
                 <div className="space-y-4 animate-in fade-in duration-300">
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
-                    <input type="email" name="email" required maxLength={100} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors" placeholder="you@example.com" value={regData.email} onChange={handleRegChange} />
+                    <label className="block text-sm font-medium text-neutral-300 mb-1">Email Address</label>
+                    <input type="email" name="email" required maxLength={100} className="w-full bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors" placeholder="you@example.com" value={regData.email} onChange={handleRegChange} />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-1">Password</label>
+                    <label className="block text-sm font-medium text-neutral-300 mb-1">Password</label>
                     <div className="relative">
-                      <input type={showRegPassword ? "text" : "password"} name="password" required maxLength={100} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors pr-10" placeholder="••••••••" value={regData.password} onChange={handleRegChange} />
-                      <button type="button" onClick={() => setShowRegPassword(!showRegPassword)} className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-300 focus:outline-none">
+                      <input type={showRegPassword ? "text" : "password"} name="password" required maxLength={100} className="w-full bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors pr-10" placeholder="••••••••" value={regData.password} onChange={handleRegChange} />
+                      <button type="button" onClick={() => setShowRegPassword(!showRegPassword)} className="absolute inset-y-0 right-0 pr-3 flex items-center text-neutral-400 hover:text-neutral-300 focus:outline-none">
                         {showRegPassword ? (
                           <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" /></svg>
                         ) : (
@@ -335,10 +335,10 @@ const CustomerAuth = () => {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-1">Confirm Password</label>
+                    <label className="block text-sm font-medium text-neutral-300 mb-1">Confirm Password</label>
                     <div className="relative">
-                      <input type={showRegConfirmPassword ? "text" : "password"} name="confirmPassword" required maxLength={100} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors pr-10" placeholder="••••••••" value={regData.confirmPassword} onChange={handleRegChange} />
-                      <button type="button" onClick={() => setShowRegConfirmPassword(!showRegConfirmPassword)} className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-300 focus:outline-none">
+                      <input type={showRegConfirmPassword ? "text" : "password"} name="confirmPassword" required maxLength={100} className="w-full bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors pr-10" placeholder="••••••••" value={regData.confirmPassword} onChange={handleRegChange} />
+                      <button type="button" onClick={() => setShowRegConfirmPassword(!showRegConfirmPassword)} className="absolute inset-y-0 right-0 pr-3 flex items-center text-neutral-400 hover:text-neutral-300 focus:outline-none">
                         {showRegConfirmPassword ? (
                           <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" /></svg>
                         ) : (
@@ -352,14 +352,14 @@ const CustomerAuth = () => {
                     <button
                       type="button"
                       onClick={() => setWizardStep(1)}
-                      className="w-1/3 flex justify-center py-2.5 px-4 border border-white/20 rounded-lg shadow-sm text-sm font-semibold text-slate-300 bg-white/5 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 focus:ring-offset-slate-900 transition-all"
+                      className="w-1/3 flex justify-center py-2.5 px-4 border border-neutral-600 rounded-lg shadow-sm text-sm font-semibold text-neutral-300 bg-neutral-800 hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 focus:ring-offset-black transition-all"
                     >
                       &larr; Back
                     </button>
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-2/3 flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 focus:ring-offset-slate-900 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-2/3 flex justify-center py-2.5 px-4 border border-transparent rounded-full shadow-sm text-sm font-semibold text-white bg-emerald-500 hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 focus:ring-offset-black transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {loading ? 'Sending OTP...' : 'Next Step \u2192'}
                     </button>
@@ -370,38 +370,38 @@ const CustomerAuth = () => {
               {wizardStep === 3 && (
                 <div className="space-y-4 animate-in fade-in duration-300">
                   <div className="text-center mb-6">
-                    <div className="w-16 h-16 bg-purple-500/20 text-purple-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4">
                       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                     </div>
                     <h3 className="text-lg font-medium text-white">Check your email</h3>
-                    <p className="text-sm text-slate-400 mt-1">We've sent a 6-digit code to <span className="font-semibold text-slate-200">{regData.email}</span></p>
+                    <p className="text-sm text-neutral-400 mt-1">We've sent a 6-digit code to <span className="font-semibold text-neutral-200">{regData.email}</span></p>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-1">Verification Code</label>
-                    <input type="text" name="otp" required maxLength={6} className="w-full text-center tracking-[1em] font-mono text-xl bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors" placeholder="------" value={regData.otp} onChange={handleRegChange} />
+                    <label className="block text-sm font-medium text-neutral-300 mb-1">Verification Code</label>
+                    <input type="text" name="otp" required maxLength={6} className="w-full text-center tracking-[1em] font-mono text-xl bg-neutral-800 border border-neutral-600 rounded-lg px-4 py-3 text-white placeholder-neutral-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors" placeholder="------" value={regData.otp} onChange={handleRegChange} />
                   </div>
                   
                   <div className="flex flex-col items-center space-y-4 mt-6">
                     <button
                       type="submit"
                       disabled={loading || regData.otp.length !== 6}
-                      className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 focus:ring-offset-slate-900 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-full shadow-sm text-sm font-semibold text-white bg-emerald-500 hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 focus:ring-offset-black transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {loading ? 'Verifying...' : 'Verify & Register'}
                     </button>
 
-                    <div className="text-sm text-slate-400">
+                    <div className="text-sm text-neutral-400">
                       {otpTimer > 0 ? (
-                        <span>Resend code in <span className="text-purple-400 font-medium">{otpTimer}s</span></span>
+                        <span>Resend code in <span className="text-emerald-400 font-medium">{otpTimer}s</span></span>
                       ) : (
-                        <button type="button" onClick={handleResendOtp} disabled={loading} className="text-purple-400 hover:text-purple-300 font-medium disabled:opacity-50 transition-colors">
+                        <button type="button" onClick={handleResendOtp} disabled={loading} className="text-emerald-400 hover:text-emerald-300 font-medium disabled:opacity-50 transition-colors">
                           Resend Code
                         </button>
                       )}
                     </div>
 
-                    <button type="button" onClick={() => setWizardStep(2)} className="text-sm text-slate-500 hover:text-slate-400 transition-colors">
+                    <button type="button" onClick={() => setWizardStep(2)} className="text-sm text-neutral-500 hover:text-neutral-400 transition-colors">
                       &larr; Back to Email
                     </button>
                   </div>
