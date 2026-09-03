@@ -5,9 +5,10 @@ const Product = require('../models/Product');
 // @access  Public (or protected)
 const getProducts = async (req, res) => {
   try {
+    res.set('Cache-Control', 'no-store');
     const products = await Product.find({
       isActive: true,
-      stockQuantity: { $gt: 0 }
+      storeQuantity: { $gt: 0 }
     }).populate('category', 'name');
     res.json({ success: true, data: products });
   } catch (error) {

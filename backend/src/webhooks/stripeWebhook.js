@@ -48,11 +48,11 @@ exports.handleStripeWebhook = async (req, res) => {
         sale.paymentStatus = 'paid';
         await sale.save({ session });
 
-        // Atomic decrement Product.stockQuantity & create StockMovement
+        // Atomic decrement of store stock and create StockMovement.
         for (const item of sale.items) {
           const product = await Product.findOneAndUpdate(
-            { _id: item.productId, stockQuantity: { $gte: item.quantity } },
-            { $inc: { stockQuantity: -item.quantity } },
+            { _id: item.productId, storeQuantity: { $gte: item.quantity } },
+            { $inc: { storeQuantity: -item.quantity } },
             { new: false, session }
           );
 
@@ -64,8 +64,8 @@ exports.handleStripeWebhook = async (req, res) => {
             productId: item.productId,
             type: 'SALE',
             quantity: -item.quantity,
-            previousStock: product.stockQuantity,
-            newStock: product.stockQuantity - item.quantity,
+            previousStock: product.storeQuantity,
+            newStock: product.storeQuantity - item.quantity,
             referenceId: sale._id
           });
           await stockMovement.save({ session });

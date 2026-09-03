@@ -166,7 +166,7 @@ exports.finalizeTest = async (req, res) => {
     // Re-validate
     for (const item of cart.items) {
       const product = await Product.findById(item.productId);
-      if (!product || !product.isActive || product.stockQuantity < item.quantity) {
+      if (!product || !product.isActive || product.storeQuantity < item.quantity) {
         cart.status = 'cancelled';
         await cart.save();
         return res.status(400).json({ success: false, message: `Product ${item.productName} is unavailable or price changed.` });
@@ -224,5 +224,4 @@ exports.finalizeTest = async (req, res) => {
     res.status(500).json({ success: false, message: 'Server error' });
   }
 };
-
 

@@ -24,7 +24,7 @@ const productSchema = new mongoose.Schema({
     required: true,
     min: 0,
   },
-  stockQuantity: {
+  storeQuantity: {
     type: Number,
     required: true,
     default: 0,
@@ -47,6 +47,15 @@ const productSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   }
-}, { timestamps: true });
+}, {
+  timestamps: true,
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true }
+});
+
+// Preserve the field expected by the existing customer frontend.
+productSchema.virtual('stockQuantity').get(function getStockQuantity() {
+  return this.storeQuantity;
+});
 
 module.exports = mongoose.model('Product', productSchema);
